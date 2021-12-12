@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Модель Test будет содержать следующие сущности:
 
-Things you may want to cover:
+* Тест
+* Вопросы к тесту
+* Ответы на тест
 
-* Ruby version
+Модель User будет содержать следующие сущности:
 
-* System dependencies
+* Пользователь
+* Пройденные им тесты
+* Результаты пройденных тестов
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
