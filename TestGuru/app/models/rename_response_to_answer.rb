@@ -1,0 +1,2 @@
+class RenameResponseToAnswer < ApplicationRecord
+end

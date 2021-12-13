@@ -10,39 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_170948) do
+ActiveRecord::Schema.define(version: 2021_12_13_120303) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string "correct", default: "Yes", null: false
+    t.integer "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "test_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_id"], name: "index_categories_on_test_id"
   end
 
   create_table "quiestions", force: :cascade do |t|
     t.string "body", null: false
-    t.integer "test_id"
+    t.integer "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_quiestions_on_test_id"
   end
 
-  create_table "responses", force: :cascade do |t|
-    t.string "body", default: "Yes"
-    t.integer "question_id"
+  create_table "rename_response_to_answers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_responses_on_question_id"
   end
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "level", default: 0
-    t.integer "user_id"
+    t.integer "level", default: 0, null: false
+    t.integer "author_id", null: false
+    t.integer "categories_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_tests_on_user_id"
+    t.index ["author_id"], name: "index_tests_on_author_id"
+    t.index ["categories_id"], name: "index_tests_on_categories_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,8 +56,8 @@ ActiveRecord::Schema.define(version: 2021_12_12_170948) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "categories", "tests"
+  add_foreign_key "answers", "questions"
   add_foreign_key "quiestions", "tests"
-  add_foreign_key "responses", "questions"
-  add_foreign_key "tests", "users"
+  add_foreign_key "tests", "categories", column: "categories_id"
+  add_foreign_key "tests", "users", column: "author_id"
 end
