@@ -1,2 +1,0 @@
-class Quiestion < ApplicationRecord
-end
