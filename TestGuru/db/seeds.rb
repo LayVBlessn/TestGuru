@@ -1,7 +1,49 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+users = User.create([
+
+  {name: 'Bogdan'},
+  {name: 'Grogory'},
+  {name: 'Igor'}
+  
+  ])
+
+categories = Category.create([
+  
+  {body: 'Ruby Programming'}, 
+  {body: 'C++ Programming'}
+    
+  ])
+
+tests = Test.create([
+
+  {title: 'Initialization', level: 3, author_id: users[2].id, category_id: categories[0].id},
+  {title: 'Pointers', level: 2, author_id: users[0].id, category_id: categories[1].id},
+  {title: 'Printing', author_id: users[1].id, category_id: categories[0].id}
+  
+  ])
+
+questions = Question.create([
+
+  {title: 'How to announce pointer of int x?', test_id: tests[1].id},
+  {title: 'How to initialize a variable named m with value 5?', test_id: tests[0].id},
+  {title: "How to print a massive called 'A' in line?", test_id: tests[2].id}
+  
+  ])
+
+Answer.create([
+
+  {title: "int x;\nint *p = &x;", question_id: questions[0].id},
+  {title: 'm = 5', question_id: questions[1].id},
+  {title: 'print A', question_id: questions[2].id}
+
+])
+
+UserPassedTest.create([
+
+  {user_id: users[0].id, test_id: tests[0].id},
+  {user_id: users[0].id, test_id: tests[1].id},
+  {user_id: users[1].id,test_id: tests[2].id},
+  {user_id: users[2].id, test_id: tests[1].id}
+
+])
+
