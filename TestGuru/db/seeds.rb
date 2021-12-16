@@ -1,5 +1,5 @@
 
-users = User.create([
+users = User.create!([
 
   {name: 'Bogdan'},
   {name: 'Grogory'},
@@ -7,14 +7,14 @@ users = User.create([
   
   ])
 
-categories = Category.create([
+categories = Category.create!([
   
   {body: 'Ruby Programming'}, 
   {body: 'C++ Programming'}
     
   ])
 
-tests = Test.create([
+tests = Test.create!([
 
   {title: 'Initialization', level: 3, author_id: users[2].id, category_id: categories[0].id},
   {title: 'Pointers', level: 2, author_id: users[0].id, category_id: categories[1].id},
@@ -22,7 +22,7 @@ tests = Test.create([
   
   ])
 
-questions = Question.create([
+questions = Question.create!([
 
   {title: 'How to announce pointer of int x?', test_id: tests[1].id},
   {title: 'How to initialize a variable named m with value 5?', test_id: tests[0].id},
@@ -30,7 +30,7 @@ questions = Question.create([
   
   ])
 
-Answer.create([
+Answer.create!([
 
   {title: "int x;\nint *p = &x;", question_id: questions[0].id},
   {title: 'm = 5', question_id: questions[1].id},
@@ -38,7 +38,7 @@ Answer.create([
 
 ])
 
-UserPassedTest.create([
+UserPassedTest.create!([
 
   {user_id: users[0].id, test_id: tests[0].id},
   {user_id: users[0].id, test_id: tests[1].id},
