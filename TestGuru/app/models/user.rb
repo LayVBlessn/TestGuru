@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
+  has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
+  has_many :tests_user, dependent: :delete_all
+  has_many :tests, through: :tests_user
 
-  def tests_list_by_level(level)
-    Test.joins('JOIN user_passed_tests ON user_passed_tests.test_id = tests.id')
-    .where('tests.level = ? AND user_passed_tests.user_id = tests.author_id', level)
+  def tests_level(level)
+    tests.where(level: level)
   end
-
 end
