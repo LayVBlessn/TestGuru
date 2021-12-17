@@ -38,12 +38,8 @@ Answer.create!([
 
 ])
 
-UserPassedTest.create!([
-
-  {user_id: users[0].id, test_id: tests[0].id},
-  {user_id: users[0].id, test_id: tests[1].id},
-  {user_id: users[1].id,test_id: tests[2].id},
-  {user_id: users[2].id, test_id: tests[1].id}
-
-])
+users[0].tests.push(tests[0])
+users[0].tests.push(tests[1])
+users[1].tests.push(tests[1])
+users[1].tests.push(tests[2])
 
