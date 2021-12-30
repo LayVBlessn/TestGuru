@@ -5,7 +5,7 @@ class Answer < ApplicationRecord
 
   validates :title, presence: true
 
-  scope :right_answers, -> { where(correct: true).pluck(:title) }
+  scope :correct, -> { where(correct: true) }
 
   def validate_answers_number
     errors.add :base if question.answers.count > 3
