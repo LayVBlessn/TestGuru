@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_195857) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
+    t.string "email", null: false
   end
 
   add_foreign_key "answers", "questions"
