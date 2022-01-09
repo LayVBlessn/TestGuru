@@ -1,0 +1,8 @@
+<center>
+  <h1>Question Info</h1>
+  <li>Title: <%= @question.title %></li>
+  <li>Test: <%= @question.test.title %></li>
+  <li>Created at: <%= @question.created_at.time %></li>
+
+  <%= link_to 'Delete this question', test_question_path, method: :delete%>
+</center>

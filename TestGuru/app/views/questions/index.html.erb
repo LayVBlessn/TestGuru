@@ -1,0 +1,9 @@
+<center>
+  <h1>Questions</h1>
+    <% @questions.each do |q| %>
+      <li> Title: <%= q.title %>, ID: <%= q.id%> </li>
+    <% end %>
+
+  <%= link_to 'Create new Question', new_test_question_path %>
+
+</center>
