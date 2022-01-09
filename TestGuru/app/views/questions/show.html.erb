@@ -4,5 +4,5 @@
   <li>Test: <%= @question.test.title %></li>
   <li>Created at: <%= @question.created_at.time %></li>
 
-  <%= link_to 'Delete this question', test_question_path, method: :delete%>
+  <%= link_to 'Delete this question', question_path, method: :delete%>
 </center>
