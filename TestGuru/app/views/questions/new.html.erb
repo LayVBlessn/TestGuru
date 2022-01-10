@@ -1,0 +1,10 @@
+<center>
+  <h1>New Question</h1>
+
+   <%= form_with model: [@test, @question] do |f| %>
+    <%= f.label 'Question title'%>
+    <%= f.text_field :title %>
+    <%= f.submit 'Create' %>
+  <%end%>
+
+</center>
