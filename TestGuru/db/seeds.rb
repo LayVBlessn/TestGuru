@@ -34,7 +34,7 @@ questions = Question.create!([
 Answer.create!([
 
                  { title: "int x;\nint *p = &x;", question_id: questions[0] },
-                 { title: 'm = 5', question_id: questions[1]},
+                 { title: 'm = 5', question_id: questions[1] },
                  { title: 'print A', question_id: questions[2] }
 
                ])

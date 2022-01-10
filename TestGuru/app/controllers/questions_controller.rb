@@ -1,5 +1,6 @@
-class QuestionsController < ApplicationController
+# frozen_string_literal: true
 
+class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy]
   before_action :find_test, only: %i[index new create]
 
@@ -14,7 +15,7 @@ class QuestionsController < ApplicationController
   def new
     @question = @test.questions.new
   end
-  
+
   def create
     @question = @test.questions.new(question_params)
 
@@ -24,7 +25,7 @@ class QuestionsController < ApplicationController
       render :new, notice: 'Try again'
     end
   end
-  
+
   def destroy
     @question.destroy
     redirect_to test_questions_path(@question.test), notice: 'Question was deleted'
