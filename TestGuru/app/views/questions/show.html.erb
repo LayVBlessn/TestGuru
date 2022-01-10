@@ -1,8 +1,26 @@
 <center>
   <h1>Question Info</h1>
-  <li>Title: <%= @question.title %></li>
-  <li>Test: <%= @question.test.title %></li>
-  <li>Created at: <%= @question.created_at.time %></li>
 
-  <%= link_to 'Delete this question', question_path, method: :delete%>
+    <table border='1'>
+    <tr>
+      <th>Title</th>
+      <th>Test</th>
+      <th>Created at</th>
+    </tr>
+    <tr>
+      <td><%= @question.title %></td>
+     <td><%= @question.test.title %></td>
+      <td><%= @question.created_at.time %></td>
+    </tr>
+  </table>
+
+  <%= link_to 'Delete this question', 
+              question_path, 
+              method: :delete,
+              data: { confirm: 'Are you sure?'} %>
+
+  <%= link_to 'Edit this question', edit_question_path %>
+  <%= link_to 'Back', @question.test %>
+
+  
 </center>

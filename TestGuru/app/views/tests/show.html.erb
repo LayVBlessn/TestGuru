@@ -1,8 +1,28 @@
 <center>
 
-  <h1>Test info</h1>
-  <li>Title: <%= @test.title %></li>
-  <li>Level: <%= @test.level %></li>
-  <li>Tag: <%= @test.category.body %></li>
-  <li>Author: <%= @test.author.name %></li>
+  <h1><%= @test.title%> Test</h1>
+  <table border='1'>
+    <tr>
+      <th>Title</th>
+      <th>Level</th>
+      <th>Tag</th>
+      <th>Author</th>
+    </tr>
+    <tr>
+      <td><%= @test.title %></td>
+      <td><%= @test.level %></td>
+      <td><%= @test.category.body %></td>
+      <td><%= @test.author.name %></td>
+    </tr>
+  </table>
+
+  <h2>Questions list</h2>
+
+  <%= render @test.questions %>
+
+  <h2>
+    <%= link_to 'Back', tests_path%> 
+    <%= link_to 'Create new question', new_test_question_path(@test)%>
+  </h2>
+
 </center>
