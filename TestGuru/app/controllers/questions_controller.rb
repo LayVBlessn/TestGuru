@@ -2,13 +2,9 @@
 
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy update edit]
-  before_action :find_test, only: %i[index new create]
+  before_action :find_test, only: %i[new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def index
-    @questions = Question.where(test: @test)
-  end
 
   def show; end
 
@@ -21,7 +17,7 @@ class QuestionsController < ApplicationController
       render :new, notice: 'Try again'
     end
   end
-  
+
   def new
     @question = @test.questions.new
   end
