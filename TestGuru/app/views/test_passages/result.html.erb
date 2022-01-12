@@ -1,0 +1,18 @@
+<center>
+
+<h1>The <%= @test_passage.test.title %> Test was 
+
+<% if @test_passage.test_passed?%>
+  <span style='color:green'> Passed </span>
+<% else %>
+  <span style='color:red'> Failed </span>
+<% end %>
+with 
+<%= @test_passage.test_passed_percent%>%
+Accuracy!
+
+</h1>
+
+<%= link_to 'Back to Main Menu', tests_path%>
+
+<center>
