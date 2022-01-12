@@ -38,8 +38,3 @@ Answer.create!([
                  { title: 'print A', question_id: questions[2] }
 
                ])
-
-# users[0].tests.push(tests[0])
-# users[0].tests.push(tests[1])
-# users[1].tests.push(tests[1])
-# users[1].tests.push(tests[2])
