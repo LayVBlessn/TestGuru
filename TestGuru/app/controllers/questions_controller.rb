@@ -1,16 +1,22 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[show destroy]
-  before_action :find_test, only: %i[index new create]
+  before_action :find_question, only: %i[show destroy update edit]
+  before_action :find_test, only: %i[new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = Question.where(test: @test)
-  end
-
   def show; end
+
+  def edit; end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question.test, notice: 'Question was updated'
+    else
+      render :new, notice: 'Try again'
+    end
+  end
 
   def new
     @question = @test.questions.new
@@ -20,7 +26,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_questions_path(@question.test), notice: 'New question was created'
+      redirect_to @question.test, notice: 'New question was created'
     else
       render :new, notice: 'Try again'
     end
@@ -28,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test), notice: 'Question was deleted'
+    redirect_to @question.test, notice: 'Question was deleted'
   end
 
   private

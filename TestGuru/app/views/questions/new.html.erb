@@ -1,10 +1,6 @@
 <center>
-  <h1>New Question</h1>
 
-   <%= form_with model: [@test, @question] do |f| %>
-    <%= f.label 'Question title'%>
-    <%= f.text_field :title %>
-    <%= f.submit 'Create' %>
-  <%end%>
+    <%= render 'form', button_name: 'Create' %>
+    <%= link_to 'Back', @question.test %>
 
 </center>
