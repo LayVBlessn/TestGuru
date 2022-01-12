@@ -9,12 +9,14 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
 
   validates :title, presence: true, uniqueness: {
-            scope: :level }
+    scope: :level
+  }
 
   validates :level, numericality: {
-            only_integer: true,
-            greater_than_or_equal_to: 0 },
-            uniqueness: true
+    only_integer: true,
+    greater_than_or_equal_to: 0
+  },
+                    uniqueness: true
 
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
