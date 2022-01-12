@@ -3,7 +3,7 @@
 users = User.create!([
 
                        { name: 'Bogdan', email: 'bogdan@example.com' },
-                       { name: 'Grogory', email: 'grogory@example.com' },
+                       { name: 'Grigory', email: 'grigory@example.com' },
                        { name: 'Igor', email: 'igor@example.com' }
 
                      ])
@@ -19,7 +19,7 @@ tests = Test.create!([
 
                        { title: 'Initialization', level: 3, author_id: users[2], category_id: categories[0] },
                        { title: 'Pointers', level: 2, author_id: users[0], category_id: categories[1] },
-                       { title: 'Printing', author_id: users[1], category_id: categories[0] }
+                       { title: 'Ruby Basics', level: 1, author_id: users[1], category_id: categories[0] }
 
                      ])
 
@@ -38,8 +38,3 @@ Answer.create!([
                  { title: 'print A', question_id: questions[2] }
 
                ])
-
-users[0].tests.push(tests[0])
-users[0].tests.push(tests[1])
-users[1].tests.push(tests[1])
-users[1].tests.push(tests[2])

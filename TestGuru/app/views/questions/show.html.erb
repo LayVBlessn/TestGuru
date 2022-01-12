@@ -22,5 +22,10 @@
   <%= link_to 'Edit this question', edit_question_path %>
   <%= link_to 'Back', @question.test %>
 
+  <h2>Answers</h2>
+
+  <%= link_to 'New Answer', new_question_answer_path(@question)%>
+  
+  <%= render @question.answers%>
   
 </center>

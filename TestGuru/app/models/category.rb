@@ -3,7 +3,7 @@
 class Category < ApplicationRecord
   default_scope { order(body: :asc) }
 
-  has_many :tests, dependent: :destroy
+  has_many :tests
 
   validates :body, presence: true
 end
