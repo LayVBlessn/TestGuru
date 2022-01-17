@@ -1,0 +1,34 @@
+<center>
+
+  <h1><%= @test.title%> Test</h1>
+  <table border='1'>
+    <tr>
+      <th>Title</th>
+      <th>Level</th>
+      <th>Category</th>
+    </tr>
+    <tr>
+      <td><%= @test.title %></td>
+      <td><%= @test.level %></td>
+      <td><%= @test.category.body %></td>
+    </tr>
+  </table>
+  
+  <h2>
+    <%= link_to 'Edit', edit_admin_test_path(@test) %> 
+    <%= link_to 'Delete this Test', 
+              admin_test_path(@test), 
+              method: :delete,
+              data: { confirm: 'Are you sure?'} %>
+  </h2>
+
+  <h2>Questions list</h2>
+
+  <%= render @test.questions %>
+
+  <h3>
+    <%= link_to 'Back', admin_tests_path%> 
+    <%= link_to 'Create new question', new_admin_test_question_path(@test)%>
+  </h3>
+
+</center>

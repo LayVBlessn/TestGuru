@@ -1,0 +1,31 @@
+<center>
+  <h1>Question Info</h1>
+
+    <table border='1'>
+    <tr>
+      <th>Title</th>
+      <th>Test</th>
+      <th>Created at</th>
+    </tr>
+    <tr>
+      <td><%= @question.title %></td>
+     <td><%= @question.test.title %></td>
+      <td><%= @question.created_at.time %></td>
+    </tr>
+  </table>
+
+  <%= link_to 'Delete this question', 
+              admin_question_path(@question), 
+              method: :delete,
+              data: { confirm: 'Are you sure?'} %>
+
+  <%= link_to 'Edit this question', edit_admin_question_path(@question) %>
+  <%= link_to 'Back', admin_test_path(@question.test) %>
+
+  <h2>Answers</h2>
+
+  <%= link_to 'New Answer', new_admin_question_answer_path(:question_id => @question.id) %>
+  
+  <%= render @question.answers%>
+  
+</center>

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show start]
-  skip_before_action :authenticate_user!, only: :index
 
+  before_action :authenticate_user!
+  before_action :set_test, only: %i[show start]
+ 
   def index
     @tests = Test.all
   end

@@ -1,0 +1,16 @@
+<%= form_with model: [:admin, @test], local: true do |f| %>
+    <%= render 'shared/errors', resource: @test %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title, id: :test_title %>
+
+    <%= f.label :level %>
+    <%= f.text_field :level, id: :test_level %>
+
+    <%= f.label :category_id %>
+    <%= f.select :category_id, Category.pluck(:body, :id), {} %>
+
+    <%= f.submit "Submit" %>
+
+<% end %>
+
