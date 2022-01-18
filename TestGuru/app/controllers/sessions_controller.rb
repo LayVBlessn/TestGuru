@@ -1,24 +1,16 @@
 # frozen_string_literal: true
 
-class SessionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[new create]
-
-  def new; end
-
+class SessionsController < Devise::SessionsController
   def create
-    user = User.find_by(email: params[:email])
-
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to cookies.delete(:path) || root_path
-    else
-      flash.now[:alert] = 'Are you a Guru? Verify your Email and Password, please'
-      render :new
-    end
+    super
+    flash[:notice] = "Hello, #{current_user.first_name}"
   end
 
-  def destroy
-    session.destroy
-    redirect_to root_path
+  protected
+
+  def after_sign_in_path_for(_resource)
+    return admin_tests_path if current_user.is_a?(Admin)
+
+    root_path
   end
 end

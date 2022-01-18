@@ -1,0 +1,11 @@
+<center>
+
+<h1>Question</h1>
+<p><%= @answer.question.title%></p>
+
+<p>Answer: <%= @answer.title %></p>
+<p>Correct: <%= @answer.correct %></p>
+
+<%= link_to 'Back', admin_question_path(@answer.question) %>
+
+<center>
