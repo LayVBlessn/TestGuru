@@ -1,5 +1,6 @@
-class GistsController < ApplicationController
+# frozen_string_literal: true
 
+class GistsController < ApplicationController
   def create
     find_test_passage
 

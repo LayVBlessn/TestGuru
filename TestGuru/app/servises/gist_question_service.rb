@@ -1,5 +1,6 @@
-class GistQuestionService
+# frozen_string_literal: true
 
+class GistQuestionService
   GistResponse = Struct.new(:success?, :html_url)
 
   def initialize(question, client: git_client)
