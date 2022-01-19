@@ -9,7 +9,7 @@ class GistsController < ApplicationController
     if result.success?
       gist_url = result.html_url
       Gist.create!(question: @test_passage.current_question, creator: current_user, url: gist_url)
-      flash[:notice] = I18n.t('gist.notice', gist_url: gist_url).html_safe
+      flash[:notice] = I18n.t('gist.notice', gist_url: gist_url)
     else
       flash[:alert] = I18n.t('gist.alert')
     end

@@ -1,5 +1,5 @@
 en:
   gist:
     about: "A question about %{test_title} from TestGuru"
-    notice: "Gist was created! <a href=\"%{gist_url}\"> Watch</a>"
+    notice: "Gist was created! <a href=\"%{gist_url}\" target=\"_blank\"> Watch</a>"
     alert: "Gist wasn't created!"
