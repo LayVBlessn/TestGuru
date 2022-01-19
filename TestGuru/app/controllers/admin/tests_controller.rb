@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class TestsController < Admin::BaseController
-  before_action :set_test, only: %i[show edit update destroy start]
+class Admin::TestsController < Admin::BaseController
+  before_action :set_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
