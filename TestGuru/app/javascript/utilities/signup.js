@@ -1,15 +1,15 @@
 document.addEventListener('turbolinks:load', function(){
-  var control = document.querySelector('.signup')
+  const control = document.querySelector('.passwords')
 
   if (control) {
-    document.querySelector('.passwords').addEventListener('input', checkPasswords)
+    control.addEventListener('input', checkPasswords)
   }
 })
 
 function checkPasswords(){
-  var password = document.getElementById('user_password')
-  var passwordConfirmation = document.getElementById('user_password_confirmation')
-  
+  let password = document.getElementById('user_password')
+  let passwordConfirmation = document.getElementById('user_password_confirmation')
+
   if (passwordConfirmation.value != ""){
     if (password.value != passwordConfirmation.value){
       passwordConfirmation.style.borderColor = 'red'
