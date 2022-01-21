@@ -1,3 +1,6 @@
+@import "typography/icons";
+@import "global";
+
 .flash{
   border: 2px solid;
   padding: 10px;
