@@ -1,2 +1,5 @@
 ru:
-  hello: "Привет, Мир!"
+  gist:
+    about: "Вопрос %{test_title} с TestGuru"
+    notice: "Gist был создан! <a href=\"%{gist_url}\" target=\"_blank\"> Watch</a>"
+    alert: "Gist не был создан!"
