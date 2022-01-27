@@ -10,6 +10,7 @@ import "channels"
 import "utilities/sorting.js"
 import "utilities/signup.js"
 import "utilities/progress_bar.js"
+import "utilities/form_inline.js"
 
 Rails.start()
 Turbolinks.start()
