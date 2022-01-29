@@ -2,15 +2,17 @@
 
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<%= content_tag :div, class: 'countdown hide', data: {hours: test_time[:hours], minutes: test_time[:minutes], seconds: test_time[:seconds], id: @test_passage.id} do %>
+<% end %>
+
 </center>
 
-<%= content_tag :div, class: 'myProgress' %>
+<%= content_tag :div, class: 'myProgress' do %>
   <%= content_tag :div, class: ['progressBar', 'myBar'],  data: { answers_number: @test_passage.test.questions.count, current_answer_number: @test_passage.current_question_number } do %>
   <% end %>
 <% end %>
 
 <center>
-
 
 <b>
   <%= @test_passage.current_question.title %>
