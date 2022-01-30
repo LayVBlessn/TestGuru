@@ -1,0 +1,24 @@
+<h1>Your Badges, <%= current_user.first_name %></h1>
+<div>
+  <% if current_user.badges.blank? %>
+    <p>You have no Badges</p>
+  <% else %>
+    <%= render current_user.badges %>
+  <% end %>
+</div>
+
+<h2>All Badges</h2>
+<p> You can get them by passing tests!</p>
+<div>
+  <% if @badges.blank? %>
+    <p>There is no badges yet!</p>
+  <% else %>
+  <ul>
+    <%= render @badges %>
+  </ul>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to 'Main Menu', root_path%>
+</div>

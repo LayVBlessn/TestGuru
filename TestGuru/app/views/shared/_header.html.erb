@@ -3,6 +3,7 @@
     <b><%= link_to 'TestGuru', root_path %></b> 
     <% if user_signed_in? %>
      | <b><%= current_user.first_name %></b> Guru |
+     <%= link_to 'My Badges', badges_path%> |
       <%= link_to 'Log Out', 
                   destroy_user_session_path, 
                   method: :delete

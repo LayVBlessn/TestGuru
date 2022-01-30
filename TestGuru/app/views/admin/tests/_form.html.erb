@@ -1,14 +1,29 @@
 <%= form_with model: [:admin, @test], local: true do |f| %>
     <%= render 'shared/errors', resource: @test %>
-
+  <p>
     <%= f.label :title %>
     <%= f.text_field :title, id: :test_title %>
+  </p>
 
+  <p>
     <%= f.label :level %>
     <%= f.text_field :level, id: :test_level %>
+  </p>
 
+  <p>
     <%= f.label :category_id %>
     <%= f.select :category_id, Category.pluck(:body, :id), {} %>
+  </p>
+
+  <p>
+    <%= f.label 'Timer' %>
+    <%= f.check_box 'Timer', id: :test_timer, class: 'timer'%>
+  </p>
+
+  <p class="hide timer_value">
+    <%= f.label :timer_value %>
+    <%= f.text_field :timer_value, id: :test_timer_value %>
+  </p>
 
     <%= f.submit "Submit" %>
 
