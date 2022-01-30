@@ -34,6 +34,7 @@
   line-height: 35px;
   color: #ffffff;
   background-color: #4293e6;
+  border-radius: 5px;
   margin-bottom: 40px;
 }
 
@@ -69,3 +70,14 @@ a{
   height: 30px;
   background-color: rgb(120, 224, 120);
 }
+
+.badge{
+  width: 20%;
+  height: 50px;
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: rgb(43, 77, 228);
+  background-color: rgb(60, 131, 224);
+  color: white;
+}
+

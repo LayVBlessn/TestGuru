@@ -1,0 +1,17 @@
+<table class="badge">
+  <tr>
+    <th><%= image_tag "#{badge.image}", alt: "#{badge.name}", size: "50x50" %></th>
+    <th><%= badge.name %></th>
+  </tr>
+  <table>
+    <tr>
+      <td>
+        <%= link_to 'Edit', edit_admin_badge_path(badge)%> 
+        <%= link_to 'Delete this Badge', 
+             admin_badge_path(badge),
+             method: :delete,
+             data: { confirm: 'Are you sure?'} %>
+      </td>
+    </tr>
+  <table>
+</table>

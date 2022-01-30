@@ -1,0 +1,15 @@
+<h1>All Badges</h1>
+
+<div>
+  <% if @badges.blank? %>
+    <p>There is no badges yet!</p>
+  <% else %>
+  <ul>
+      <%= render @badges %>
+  </ul>
+  <% end %>
+</div>
+
+<div><%= link_to 'Create new Badge', new_admin_badge_path %>
+     <%= link_to 'Main Menu', admin_tests_path%>
+</div>
