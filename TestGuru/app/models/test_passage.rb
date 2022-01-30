@@ -17,7 +17,7 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || timer_has_expired?
   end
 
   def current_question_number
@@ -43,10 +43,12 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    if answer_ids.nil?
-    else
-      correct_answers.ids.sort == answer_ids.map(&:to_i).sort
-    end
+    return false if answer_ids.nil?
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+  end
+
+  def timer_has_expired?
+    test.timer_presence && created_at + test.timer_value.minutes < Time.current
   end
 
   def correct_answers
@@ -54,6 +56,9 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
+    return test.questions.first if current_question.nil?
+    return nil if timer_has_expired?
+
     test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end

@@ -7,7 +7,10 @@ module TestPassagesHelper
     hours = time_on_test / 3600
     minutes = (time_on_test / 60) % 60
     seconds = time_on_test % 60
-
-    { hours: hours, minutes: minutes, seconds: seconds }
+    if (hours >= 0 && minutes >= 0 && seconds >= 0)
+      { hours: hours, minutes: minutes, seconds: seconds }
+    else
+      { hours: 0, minutes: 0, seconds: 0 }
+    end
   end
 end

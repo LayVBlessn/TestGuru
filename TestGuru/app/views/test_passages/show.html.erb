@@ -2,7 +2,7 @@
 
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
-<%= content_tag :div, class: 'countdown hide', data: {timer_presence: @test_passage.test.timer_presence, hours: test_time[:hours], minutes: test_time[:minutes], seconds: test_time[:seconds], id: @test_passage.id} do %>
+<%= content_tag :div, class: 'countdown hide', data: {timer_presence: @test_passage.test.timer_presence, hours: test_time[:hours], minutes: test_time[:minutes], seconds: test_time[:seconds]} do %>
 <% end %>
 
 </center>
@@ -28,7 +28,7 @@
     </p>
   <% end %>
   <p><%= link_to 'Post on Gist', test_passage_gists_path(@test_passage), method: :post %></p>
-  <p class="next"><%= form.submit 'Next' %></p>
+  <p><%= form.submit 'Next', class: 'submit-button'%></p>
 <% end %>
 
 </center>
