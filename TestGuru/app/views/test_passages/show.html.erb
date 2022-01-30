@@ -2,7 +2,7 @@
 
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
-<%= content_tag :div, class: 'countdown hide', data: {hours: test_time[:hours], minutes: test_time[:minutes], seconds: test_time[:seconds], id: @test_passage.id} do %>
+<%= content_tag :div, class: 'countdown hide', data: {timer_presence: @test_passage.test.timer_presence, hours: test_time[:hours], minutes: test_time[:minutes], seconds: test_time[:seconds], id: @test_passage.id} do %>
 <% end %>
 
 </center>

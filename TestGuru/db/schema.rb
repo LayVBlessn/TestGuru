@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_110025) do
+ActiveRecord::Schema.define(version: 2022_01_30_053026) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean "correct", default: true, null: false
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 2022_01_28_110025) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+    t.integer "rule", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "challenge"
+  end
+
+  create_table "badges_users", id: false, force: :cascade do |t|
+    t.integer "badge_id", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id", "badge_id"], name: "index_badges_users_on_user_id_and_badge_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -52,6 +67,7 @@ ActiveRecord::Schema.define(version: 2022_01_28_110025) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "test_passed", default: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -65,6 +81,7 @@ ActiveRecord::Schema.define(version: 2022_01_28_110025) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "timer_value", default: 0
+    t.boolean "timer_presence", default: false
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
   end
