@@ -11,6 +11,9 @@ import "utilities/sorting.js"
 import "utilities/signup.js"
 import "utilities/progress_bar.js"
 import "utilities/form_inline.js"
+import "utilities/timer_on_test.js"
+import "utilities/timer.js"
+
 
 Rails.start()
 Turbolinks.start()

@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function(){
-  const control = document.querySelector('.next')
+  const control = document.querySelector('.submit-button')
 
   if (control) {
     const progressBar = document.querySelector('.progressBar')
